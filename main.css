@@ -1,0 +1,222 @@
+/*#Base*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+:root{
+    --off-white: #fff9f3;
+    --main: #ca895f;
+    --dark-main: #a15e49;
+    --lighter-dark: #4e3822;
+    --dark: #2f1b25;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    font-family: "Roboto Mono", monospace;
+    transition: .2s;
+}
+body{
+    color: var(--dark);
+}
+
+/*[ Default stuff ]*/
+button{
+    border: none;
+    background: none;
+}
+
+#txtstroke{
+    text-shadow: -1px -1px 0 var(--dark),
+                 1px -1px 0 var(--dark),
+                 -1px 1px 0 var(--dark),
+                 1px 1px 0 var(--dark);
+}
+
+.defbtn{
+    background-color: var(--main);
+    color: var(--off-white);
+    font-family: Arial;
+    border: none;
+    cursor: pointer;
+}
+.defbtn:hover{
+    background-color: var(--dark-main);
+    color: var(--main);
+    font-weight: bold;
+}
+
+.separator{
+    background-color: var(--main);
+    width: 60%;
+    height: 1px;
+    margin: 50px 0;
+    position: relative;
+    left: 20%;
+}
+
+
+
+/* Navigation */
+.navbar{
+    background-color: var(--off-white);
+    height: 50pt;
+    font-size: 18pt;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 39pt;
+    height: 39pt;
+    margin: 5pt;
+    margin-right: 9pt;
+    border-color: white;
+}
+
+.navlinks{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.navlinks p{margin-right: 17pt;}
+
+.navlinks a{
+    font-family: Arial;
+    height: 41pt;
+    width: 101pt;
+    margin-right: 2pt;
+    border-radius: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.gamenav{
+    background-color: var(--dark-main);
+    padding: 2pt;
+    margin: 0;
+    font-size: 14pt;
+    position: absolute;
+    top: 47pt;
+    right: 3pt;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.gamenav a{
+    background-color: var(--dark-main);
+    color: var(--off-white);
+    width: 95pt;
+    height: 34pt;
+    margin: 0;
+}
+.gamenav li:nth-child(2){margin-top: 2pt;}
+.gamenav a:hover{
+    background-color: var(--off-white);
+    color: var(--dark-main);
+    font-weight: bold;
+}
+
+
+/* Why the user came here in the first place */
+.main div{
+    display: grid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    margin-top: 14.5pt;
+    margin-bottom: 9.6pt;
+    font-size: 24pt;
+    font-weight: normal;
+}
+.mainborder{
+    background-color: white;
+    border-color: var(--lighter-dark);
+    border-style: double;
+    border-width: 5px;
+    width: 700pt;
+    height: 570px;
+}
+
+
+/* Feet */
+.footer{
+    color: var(--off-white);
+    font-size: 12pt;
+    display: flex;
+    position: relative;
+    top: 80px;
+}
+.footer div{
+    width: 50%;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.footer div:nth-child(2){
+    position: relative;
+    bottom: 6px;
+}
+
+#floor{
+    width:100%;
+    height: 110px;
+    margin: 0;
+    border-radius: 0;
+}
+
+
+/* Navigation #2 (but it's cooler) */
+.arrows button{
+    font-size: 12pt;
+    position: fixed;
+    top: 50%;
+}
+.arrows button:nth-child(2){right: 0;}
+.arrows button img{
+    background-color: var(--main);
+    width: 32pt;
+    height: 17pt;
+}
+
+
+
+/*-mainpage.html*/
+/* Feedback*/
+.form{
+    font-size: 18pt;
+    font-weight: normal;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+form textarea{
+    background-color: var(--off-white);
+    color: var(--dark);
+    width: 431pt;
+    height: 234pt;
+    padding: 12px;
+    margin: 5px 0;
+    font-size: 14pt;
+    font-family: Arial;
+    border-color: var(--dark-main);
+}
+form textarea::placeholder{color: var(--main);}
+form input{
+    width: 80pt;
+    height: 35pt;
+    font-size: 14pt;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My Art Gallery - Whack-a-Mole!</title>
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <link href="arcade.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <!--Navigation-->
+        <nav class="navbar">
+            <div class="logo">
+                <img>
+                <p>My Cool Art Gallery B)</p>
+            </div>
+            <ul class="navlinks">
+                <p>Links</p>
+                <li><a href="mainpage.html" class="defbtn">Art Gallery</a></li>
+                <li><a href="" class="defbtn">Cafeteria</a></li>
+                <li id="arcadebtn0"><a href="arcade.html" class="defbtn">Arcade</a></li>
+                <ul class="gamenav">
+                    <li><a href="">Game 2</a></li>
+                </ul>
+            </ul>
+        </nav>
+
+
+        <!--Game-->
+        <section class="main">
+            <div>
+                <h1>Game 1: Whack-a-Mole!</h1>
+                <div class="mainborder">
+                    <div id="gameholder">
+                        <div class="hole"><div id="mole"></div></div>
+                        <div class="hole"><div id="mole"></div></div>
+                        <div class="hole"><div id="mole"></div></div>
+
+                        <div class="hole"><div id="mole"></div></div>
+                        <div class="hole"><div id="mole"></div></div>
+                        <div class="hole"><div id="mole"></div></div>
+
+                        <div class="hole"><div id="mole"></div></div>
+                        <div class="hole"><div id="mole"></div></div>
+                        <div class="hole"><div id="mole"></div></div>
+                    </div>
+                    <div id="statview">
+                        <div class="scoreboard">Score: <span id="score">0</span></div>
+
+                        <div class="gameover" id="GameOverEl" style="display: none;"></div>
+                        <button id="startbtn" onclick="startGame()">Play!</button>
+                    </div>
+                </div>
+            </div>
+        </section><br><br>
+
+
+        <!--Footer-->
+        <section class="footer">
+            <div>
+                <p id="txtstroke">Hellooo! Welcome to THE ARCADE!!! Only fun exists here!! >:D</p>
+                <p id="txtstroke">*!This website does not have mobile support!*</p>
+            </div>
+            <div>
+                <h4 id="txtstroke">Contact:</h4>
+                <p id="txtstroke">complaintboxignore@gmail.com (no, i won't ignore your email)</p>
+            </div>
+        </section>
+        <img src="imgs/arcfloor.png" id=floor>
+
+        <!--Arrow-->
+        <div class="arrows">
+            <button id="arcadearr"><img src=""><p>Arcade</p></button>
+        </div>
+
+        <script src="main.js"></script>
+        <script>
+            //let
+            let score = 0;
+            let gameInterval;
+            let moleInterval;
+
+            //const
+            const moles = document.querySelectorAll('#mole');
+            const holes = document.querySelectorAll('.hole');
+
+            const scoreDis = document.getElementById('score');
+            const gOvertxt = document.getElementById('GameOverEl');
+            const playbtn = document.getElementById('startbtn');
+
+            //Func
+            function randMole(){
+                const randIndex = Math.floor(Math.random() * holes.length);
+                const mole = moles[randIndex];
+                const hole = holes[randIndex];
+
+                mole.style.display = 'block';
+                hole.addEventListener('click', function(){
+                    if(mole.style.display === 'block'){
+                        score++;
+                        scoreDis.textContent = score;
+                        mole.style.display = 'none';
+                    }
+                });
+                setTimeout(function(){mole.style.display = 'none';}, 5000);
+            }
+
+            function startGame(){
+                score = 0;
+                scoreDis.textContent = score;
+                gOvertxt.style.display = 'none';
+                playbtn.style.display = 'none';
+                moles.forEach(mole => mole.style.display = 'none');
+
+                gameInterval = setInterval(randMole, 1500);
+                setTimeout(function(){
+                    clearInterval(gameInterval);
+                    gOvertxt.style.display = 'block';
+                    gOvertxt.textContent = "The game has now ended, your final score is... " + score + "!";
+                    playbtn.style.display = 'block';
+                }, 20000);
+            }
+        </script>
+    </body>
+</html>
